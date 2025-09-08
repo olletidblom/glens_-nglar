@@ -58,7 +58,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <div class="hero-content">
-                        <h1>Glens Änglar</h1>
+                        <h1>Team Awesome</h1>
                         <p class="lead">Vi är en grupp passionerade utvecklare som skapar fantastiska webbupplevelser</p>
                         <a href="#team" class="btn btn-warning-custom btn-lg">Träffa teamet</a>
                     </div>
@@ -68,164 +68,116 @@
     </section>
 
 
-         <section class="team-carousel">
-        <div class="container">
+         <!-- Team Section -->
+        <section id="team" class="mb-5">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="display-4 section-title">Vårt Team</h2>
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold">Vårt Team</h2>
                 </div>
             </div>
             
-            <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-                <!-- Carousel Indicators -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="4"></button>
-                </div>
-
-                <!-- Carousel Items -->
-                <div class="carousel-inner">
-                    <!-- Slide 1: Axel -->
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-8">
-                                <div class="card team-card h-100">
-                                    <div class="card-body text-center p-5">
-                                        <a href="axel/index.html" class="team-image-link">
-                                            <img src="axel/pictures/Gamingmix2.png" 
-                                                 alt="Axel Lindström" class="mb-4">
-                                        </a>
-                                        <h3 class="card-title mb-2">
-                                            <a href="axel/index.html" class="team-name-link">Axel Lindström</a>
-                                        </h3>
-                                        <p class="role mb-2">Frontend Developer</p>
-                                        <p class="text-muted mb-4"><i class="fas fa-map-marker-alt me-2"></i>Stockholm</p>
-                                        <button class="btn like-button" onclick="toggleLike(this)">
-                                            <i class="fas fa-heart"></i>
-                                            <span>0</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2: Elias -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-8">
-                                <div class="card team-card h-100">
-                                    <div class="card-body text-center p-5">
-                                        <a href="elias/elias.html" class="team-image-link">
-                                            <img src="elias/image.jpg" 
-                                                 alt="Elias Gustafsson" class="mb-4">
-                                        </a>
-                                        <h3 class="card-title mb-2">
-                                            <a href="elias/elias.html" class="team-name-link">Elias Gustafsson</a>
-                                        </h3>
-                                        <p class="role mb-2">Backend Developer</p>
-                                        <p class="text-muted mb-4"><i class="fas fa-map-marker-alt me-2"></i>Göteborg</p>
-                                        <button class="btn like-button" onclick="toggleLike(this)">
-                                            <i class="fas fa-heart"></i>
-                                            <span>0</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Olle -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-8">
-                                <div class="card team-card h-100">
-                                    <div class="card-body text-center p-5">
-                                        <a href="olle/olle.html" class="team-image-link">
-                                            <img src="olle/images/glad.JPG" 
-                                                 alt="Olle Tidblom" class="mb-4">
-                                        </a>
-                                        <h3 class="card-title mb-2">
-                                            <a href="olle/olle.html" class="team-name-link">Olle Tidblom</a>
-                                        </h3>
-                                        <p class="role mb-2">UI/UX Designer</p>
-                                        <p class="text-muted mb-4"><i class="fas fa-map-marker-alt me-2"></i>Malmö</p>
-                                        <button class="btn like-button" onclick="toggleLike(this)">
-                                            <i class="fas fa-heart"></i>
-                                            <span>0</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4: Baptiste -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-8">
-                                <div class="card team-card h-100">
-                                    <div class="card-body text-center p-5">
-                                        <a href="bapt/bapt.html" class="team-image-link">
-                                            <img src="bapt/assets/BaptPP.JPG" 
-                                                 alt="Baptiste Morel" class="mb-4">
-                                        </a>
-                                        <h3 class="card-title mb-2">
-                                            <a href="bapt/bapt.html" class="team-name-link">Baptiste Morel</a>
-                                        </h3>
-                                        <p class="role mb-2">UI/UX Designer</p>
-                                        <p class="text-muted mb-4"><i class="fas fa-map-marker-alt me-2"></i>Malmö</p>
-                                        <button class="btn like-button" onclick="toggleLike(this)">
-                                            <i class="fas fa-heart"></i>
-                                            <span>0</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5: Joakim -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-8">
-                                <div class="card team-card h-100">
-                                    <div class="card-body text-center p-5">
-                                        <a href="joakim/cv.html" class="team-image-link">
-                                            <img src="joakim/IMG_20240105_142150_573.jpg" 
-                                                 alt="Joakim Bengtsson" class="mb-4">
-                                        </a>
-                                        <h3 class="card-title mb-2">
-                                            <a href="joakim/cv.html" class="team-name-link">Joakim Bengtsson</a>
-                                        </h3>
-                                        <p class="role mb-2">UI/UX Designer</p>
-                                        <p class="text-muted mb-4"><i class="fas fa-map-marker-alt me-2"></i>Malmö</p>
-                                        <button class="btn like-button" onclick="toggleLike(this)">
-                                            <i class="fas fa-heart"></i>
-                                            <span>0</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row g-2">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="axel/index.html" class="team-image-link">
+                                <img src="axel/pictures/Gamingmix2.png" 
+                                     alt="Axel Lindström" class="rounded mx-auto d-block h-75 w-100 mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="axel/index.html" class="team-name-link">Axel Lindström</a>
+                            </h5>
+                            <p class="role mb-1">Frontend Developer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Carousel Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="elias/elias.html" class="team-image-link">
+                                <img src="elias/image.jpg" 
+                                     alt="Elias Gustafsson" class="rounded mx-auto d-block h-75 w-100 mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="elias/elias.html" class="team-name-link">Elias Gustafsson</a>
+                            </h5>
+                            <p class="role mb-1">Backend Developer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="olle/olle.html" class="team-image-link">
+                                <img src="olle/images/glad.JPG" 
+                                     alt="Olle Tidblom" class="rounded mx-auto d-block h-75 w-100 mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="olle/olle.html" class="team-name-link">Olle Tidblom</a>
+                            </h5>
+                            <p class="role mb-1">UI/UX Designer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="bapt/bapt.html" class="team-image-link">
+                                <img src="bapt/assets/BaptPP.JPG" 
+                                     alt="Baptiste Morel" class="rounded mx-auto d-block h-75 w-100 mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="bapt/bapt.html" class="team-name-link">Baptiste Morel</a>
+                            </h5>
+                            <p class="role mb-1">UI/UX Designer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="joakim/cv.html" class="team-image-link">
+                                <img src="joakim/IMG_20240105_142150_573.jpg" 
+                                     alt="Joakim Bengtsson" class="rounded mx-auto d-block h-75 w-100 mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="joakim/cv.html" class="team-name-link">Joakim Bengtsson</a>
+                            </h5>
+                            <p class="role mb-1">UI/UX Designer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        </section>
 
 
         <!-- Voting Section -->
