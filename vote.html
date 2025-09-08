@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, 
+                   initial-scale=1.0">
+    <title>User Polls</title>
+    <link rel="stylesheet" href="./votestyles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="poll-question">
+          Vilken sida är din favorit?
+        </h1>
+        <form id="poll-form" class="poll-form">
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Axel"> Axel
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Bapt"> Baptiste
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Elias"> Elias
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Joakim"> Joakim
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Olle"> Olle
+            </label>
+            <button type="submit" 
+                    class="vote-button">
+              Vote
+            </button>
+        </form>
+        <div id="results" class="results">
+            <h2 class="results-title">
+              Results
+            </h2>
+            <div class="results-count">
+                <p>Axel: 
+                  <span id="axel-count" 
+                        class="count">0
+                  </span>
+                </p>
+                <p>Baptiste: 
+                  <span id="bapt-count" 
+                             class="count">0
+                  </span>
+                </p>
+                <p>Elias: 
+                  <span id="elias-count" 
+                             class="count">0
+                  </span>
+                </p>
+                <p>Joakim: 
+                  <span id="joakim-count" 
+                             class="count">0
+                  </span>
+                </p>
+                <p>Olle: 
+                  <span id="olle-count" 
+                             class="count">0
+                  </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="./vote.js"></script>
+</body>
+
+</html>
