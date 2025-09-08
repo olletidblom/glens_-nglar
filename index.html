@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Awesome - Hackathon</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-bs-theme="light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="#home">Team Awesome</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Hem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Om oss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+                
+                <button class="btn btn-primary dark-mode-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content">
+                        <h1>Team Awesome</h1>
+                        <p class="lead">Vi är en grupp passionerade utvecklare som skapar fantastiska webbupplevelser</p>
+                        <a href="#team" class="btn btn-warning-custom btn-lg">Träffa teamet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Weather Widget -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card weather-widget bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Väder i Stockholm</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="weather-icon me-3">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div>
+                                <div id="temperature" class="fs-4 fw-bold">Laddar...</div>
+                                <div id="description" class="text-muted">Hämtar väderdata...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <section id="team" class="mb-5">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold">Vårt Team</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+                                 alt="Team Member" class="mb-3">
+                            <h5 class="card-title">Anna Andersson</h5>
+                            <p class="role mb-1">Frontend Developer</p>
+                            <p class="text-muted mb-3">Stockholm</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" 
+                                 alt="Team Member" class="mb-3">
+                            <h5 class="card-title">Erik Eriksson</h5>
+                            <p class="role mb-1">Backend Developer</p>
+                            <p class="text-muted mb-3">Göteborg</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" 
+                                 alt="Team Member" class="mb-3">
+                            <h5 class="card-title">Maria Johansson</h5>
+                            <p class="role mb-1">UI/UX Designer</p>
+                            <p class="text-muted mb-3">Malmö</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voting Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card voting-section bg-light">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title mb-4">Rösta på vårt teamnamn!</h5>
+                        <button class="btn btn-primary vote-button" onclick="vote('awesome')">Team Awesome</button>
+                        <button class="btn btn-primary vote-button" onclick="vote('legends')">Team Legends</button>
+                        <div class="vote-count mt-3" id="voteCount">Totalt röster: 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold">Kontakta oss</h2>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label fw-semibold">Namn:</label>
+                                    <input type="text" class="form-control form-control-lg" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label fw-semibold">E-post:</label>
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="message" class="form-label fw-semibold">Meddelande:</label>
+                                    <textarea class="form-control form-control-lg" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-warning-custom btn-lg">Skicka meddelande</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div id="messageDisplay" class="card mt-4" style="display: none;">
+                        <div class="card-body">
+                            <h5 class="card-title">Ditt meddelande:</h5>
+                            <p id="displayedMessage" class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mb-4">
+                        <a href="#home" class="text-light text-decoration-none me-md-4 mb-2 mb-md-0">Hem</a>
+                        <a href="#team" class="text-light text-decoration-none me-md-4 mb-2 mb-md-0">Team</a>
+                        <a href="#about" class="text-light text-decoration-none me-md-4 mb-2 mb-md-0">Om oss</a>
+                        <a href="#contact" class="text-light text-decoration-none me-md-4 mb-2 mb-md-0">Kontakt</a>
+                        <a href="mailto:team@awesome.com" class="text-light text-decoration-none">team@awesome.com</a>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="mb-1">&copy; 2025 Team Awesome. Alla rättigheter förbehållna.</p>
+                        <p class="mb-0">Skapad med ❤️ för Chas Academy Hackathon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="btn btn-primary scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
