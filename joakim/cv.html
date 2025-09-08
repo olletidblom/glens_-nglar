@@ -5,66 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Joakim Bengtsson</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    section {
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin-bottom: 10px;
-    }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        color: #222;
+      }
+      .profile-card {
+        background: #fff;
+        max-width: 400px;
+        margin: 40px auto 20px auto;
+        padding: 32px 24px 24px 24px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+      .profile-card h1 {
+        margin: 0 0 8px 0;
+        font-size: 2.2em;
+        color: #2c3e50;
+        letter-spacing: 1px;
+      }
+      .profile-card p {
+        margin: 0;
+        font-size: 1.1em;
+        color: #555;
+      }
+      .profile-card a {
+        color: #2980b9;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .profile-card a:hover {
+        color: #e67e22;
+      }
+      .glow {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, #2980b9 0%, #e0eafc 80%);
+        border-radius: 50%;
+        filter: blur(16px);
+        opacity: 0.5;
+        z-index: 1;
+      }
+      h2 {
+        border-bottom: 2px solid #e0eafc;
+        padding-bottom: 7px;
+        margin-bottom: 18px;
+        font-size: 1.4em;
+        letter-spacing: 0.5px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        margin-bottom: 14px;
+        font-size: 1.08em;
+        line-height: 1.5;
+        background: linear-gradient(90deg, #e0eafc 0%, #f7f7f7 100%);
+        border-radius: 6px;
+        padding: 8px 12px;
+        box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+      }
+      @media (max-width: 600px) {
+        .profile-card, section {
+          max-width: 98vw;
+          padding: 16px;
+        }
+        section {
+          margin: 12px auto;
+        }
+      }
   </style>
 </head>
 <body>
-  <header>
+  <div class="profile-card">
+    <div class="glow"></div>
     <h1>Joakim Bengtsson</h1>
-    <p>Email: <a href="mailto:jockebengtsson@outlook.com">jockebengtsson@outlook.com</a> | Tel: 0722-78 63 74</p>
-  </header>
+    <p>Email: <a href="mailto:jockebengtsson@outlook.com">jockebengtsson@outlook.com</a></p>
+    <p>Tel: 0722-78 63 74</p>
+  </div>
 
-  <section>
-    <h2>Arbetslivserfarenhet</h2>
-    <ul>
-      <li><strong>Vaktmästare/Produktion, Västra Bemanning (2022–2024)</strong><br>Plejd – ombyggnationer, reparationer, montering, ordermottagning.</li>
-      <li><strong>Formsnickare/Betongare, Betong Bygg Västra (2019–2021)</strong><br>Armering, formsnickeri, gjutning, modulbyggen.</li>
-      <li><strong>Markarbetare, Svensk Markservice (2016–2018)</strong><br>Dränering, plattsättning, trädgårdsarbete, trottoarunderhåll.</li>
-      <li><strong>Lagerarbetare, Blondie Logistik (2014–2016)</strong><br>Truckkörning, plock, containerhantering.</li>
-      <li><strong>Saneringsarbete, OCAB (2013)</strong><br>Sanering efter bränder, asbest och översvämning.</li>
-      <li><strong>Flyttfirma/Däckverkstad, LFB/Däckpoint (2012–2018)</strong><br>Flyttuppdrag och däckbyten (säsongsarbete).</li>
-    </ul>
-  </section>
+    <div style="text-align:center; margin-top:16px;">
+      <a href="arbetslivserfarenhet.html" style="font-size:1.15em; color:#2980b9; text-decoration:none; font-weight:bold;">Se arbetslivserfarenhet på egen sida</a>
+    </div>
+
 
   <section>
     <h2>Hobbies</h2>
     <ul>
       <li>Träning och hälsa</li>
-      <li>Friluftsliv</li>
-      <li>Teknik och smarta hem</li>
-      <li>Musik</li>
+      <li>Bilar & annat med fart manntorp</li>
+      <li>Teknik och spel</li>
+      <li>hardcore</li>
     </ul>
   </section>
 </body>
