@@ -1,3 +1,344 @@
+ // IMPORTANT: Replace these with your actual Supabase credentials
+        const SUPABASE_URL = 'https://tvbqvrklhlriyksknynj.supabase.co';
+        const SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2YnF2cmtsaGxyaXlrc2tueW5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMzY3NDMsImV4cCI6MjA3MjkxMjc0M30.Sx_e9aREKhWROBJeYwNztiK98kLxiiQWBJBwXObOrh8;
+        
+        // Initialize Supabase client
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        let currentUser = null;
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            loadTeamMembers();
+            loadWeather();
+            
+            // Set up form handlers
+            document.getElementById('addMemberForm').addEventListener('submit', handleAddMember);
+            document.getElementById('contactForm').addEventListener('submit', handleContactForm);
+        });
+
+        // Authentication Functions
+        async function checkAuth() {
+            try {
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user) {
+                    currentUser = user;
+                    updateAuthUI(true);
+                } else {
+                    updateAuthUI(false);
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                updateAuthUI(false);
+            }
+        }
+
+        function updateAuthUI(isAuthenticated) {
+            const authButton = document.getElementById('authButton');
+            const userEmail = document.getElementById('userEmail');
+            const addMemberSection = document.getElementById('addMemberSection');
+            const authSection = document.getElementById('authSection');
+
+            if (isAuthenticated) {
+                authButton.textContent = 'Logga ut';
+                userEmail.textContent = currentUser.email;
+                addMemberSection.classList.remove('hidden');
+                authSection.classList.add('hidden');
+            } else {
+                authButton.textContent = 'Logga in';
+                userEmail.textContent = '';
+                addMemberSection.classList.add('hidden');
+                authSection.classList.add('hidden');
+            }
+        }
+
+        function toggleAuth() {
+            if (currentUser) {
+                signOut();
+            } else {
+                document.getElementById('authSection').classList.toggle('hidden');
+            }
+        }
+
+        async function signUp() {
+            const email = document.getElementById('signUpEmail').value;
+            const password = document.getElementById('signUpPassword').value;
+            
+            if (!email || !password) {
+                showMessage('Vänligen fyll i alla fält', 'warning');
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password,
+                });
+
+                if (error) throw error;
+
+                showMessage('Konto skapat! Kontrollera din e-post för att verifiera kontot.', 'success');
+                showSignIn();
+            } catch (error) {
+                showMessage('Fel vid registrering: ' + error.message, 'danger');
+            }
+        }
+
+        async function signIn() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                showMessage('Vänligen fyll i alla fält', 'warning');
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password,
+                });
+
+                if (error) throw error;
+
+                currentUser = data.user;
+                updateAuthUI(true);
+                showMessage('Välkommen tillbaka!', 'success');
+                
+                // Clear form
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginPassword').value = '';
+            } catch (error) {
+                showMessage('Fel vid inloggning: ' + error.message, 'danger');
+            }
+        }
+
+        async function signOut() {
+            try {
+                const { error } = await supabase.auth.signOut();
+                if (error) throw error;
+                
+                currentUser = null;
+                updateAuthUI(false);
+                showMessage('Du har loggats ut', 'info');
+            } catch (error) {
+                showMessage('Fel vid utloggning: ' + error.message, 'danger');
+            }
+        }
+
+        function showSignUp() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('signUpForm').classList.remove('hidden');
+        }
+
+        function showSignIn() {
+            document.getElementById('signUpForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        // Team Members Functions
+        async function loadTeamMembers() {
+            const teamContainer = document.getElementById('teamContainer');
+            const loadingTeam = document.getElementById('loadingTeam');
+            
+            try {
+                const { data: teamMembers, error } = await supabase
+                    .from('team_members')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                loadingTeam.classList.add('hidden');
+                
+                // Clear existing content except loading
+                const existingCards = teamContainer.querySelectorAll('.col-lg-4:not(#loadingTeam)');
+                existingCards.forEach(card => card.remove());
+
+                // Add team members from database
+                teamMembers.forEach(member => {
+                    const memberCard = createTeamCard(member, true);
+                    teamContainer.appendChild(memberCard);
+                });
+
+                // Add static team members (your existing ones)
+                addStaticTeamMembers();
+
+            } catch (error) {
+                console.error('Error loading team members:', error);
+                loadingTeam.innerHTML = '<p class="text-danger">Fel vid hämtning av teammedlemmar</p>';
+                
+                // Still show static members
+                addStaticTeamMembers();
+            }
+        }
+
+        function addStaticTeamMembers() {
+            const teamContainer = document.getElementById('teamContainer');
+            
+            // Your existing static team members
+            const staticMembers = [
+                {
+                    name: 'Axel Lindström',
+                    position: 'Frontend Developer',
+                    location: 'Stockholm',
+                    image: 'axel/pictures/Gamingmix2.png',
+                    link: 'axel/index.html'
+                },
+                {
+                    name: 'Elias Gustafsson',
+                    position: 'Backend Developer',
+                    location: 'Göteborg',
+                    image: 'elias/image.jpg',
+                    link: 'elias/elias.html'
+                },
+                {
+                    name: 'Olle Tidblom',
+                    position: 'UI/UX Designer',
+                    location: 'Malmö',
+                    image: 'olle/images/glad.JPG',
+                    link: 'olle/olle.html'
+                },
+                {
+                    name: 'Baptiste Morel',
+                    position: 'UI/UX Designer',
+                    location: 'Malmö',
+                    image: 'bapt/assets/BaptPP.JPG',
+                    link: 'bapt/bapt.html'
+                },
+                {
+                    name: 'Joakim Bengtsson',
+                    position: 'UI/UX Designer',
+                    location: 'Malmö',
+                    image: 'joakim/IMG_20240105_142150_573.jpg',
+                    link: 'joakim/cv.html'
+                }
+            ];
+
+            staticMembers.forEach(member => {
+                const memberCard = createTeamCard(member, false);
+                teamContainer.appendChild(memberCard);
+            });
+        }
+
+        function createTeamCard(member, isFromDatabase = false) {
+            const col = document.createElement('div');
+            col.className = 'col-lg-4 col-md-6';
+            
+            const defaultAvatar = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+            
+            if (isFromDatabase) {
+                col.innerHTML = `
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="${member.avatar_url || defaultAvatar}" 
+                                 alt="${member.name}" class="rounded mx-auto d-block mb-3 img-fluid"
+                                 onerror="this.src='${defaultAvatar}'">
+                            <h5 class="card-title">${member.name}</h5>
+                            <p class="role mb-1">${member.position || 'Team Member'}</p>
+                            <p class="text-muted mb-3">${member.location || ''}</p>
+                            ${member.bio ? `<p class="small text-muted mb-3">${member.bio}</p>` : ''}
+                            ${member.email ? `<p class="small mb-3"><i class="fas fa-envelope me-1"></i>${member.email}</p>` : ''}
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                col.innerHTML = `
+                    <div class="card team-card h-100">
+                        <div class="card-body text-center p-4">
+                            <a href="${member.link}" class="team-image-link">
+                                <img src="${member.image}" 
+                                     alt="${member.name}" class="rounded mx-auto d-block mb-3 img-fluid">
+                            </a>
+                            <h5 class="card-title">
+                                <a href="${member.link}" class="team-name-link">${member.name}</a>
+                            </h5>
+                            <p class="role mb-1">${member.position}</p>
+                            <p class="text-muted mb-3">${member.location}</p>
+                            <button class="btn like-button" onclick="toggleLike(this)">
+                                <i class="fas fa-heart"></i>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return col;
+        }
+
+        async function handleAddMember(e) {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showMessage('Du måste vara inloggad för att lägga till teammedlemmar', 'warning');
+                return;
+            }
+            
+            const name = document.getElementById('memberName').value;
+            const position = document.getElementById('memberPosition').value;
+            const email = document.getElementById('memberEmail').value;
+            const location = document.getElementById('memberLocation').value;
+            const bio = document.getElementById('memberBio').value;
+            const avatar_url = document.getElementById('memberAvatar').value;
+            
+            if (!name) {
+                showMessage('Namn är obligatoriskt', 'warning');
+                return;
+            }
+            
+            try {
+                const { data, error } = await supabase
+                    .from('team_members')
+                    .insert([
+                        {
+                            name: name,
+                            position: position,
+                            email: email,
+                            location: location,
+                            bio: bio,
+                            avatar_url: avatar_url
+                        }
+                    ])
+                    .select();
+
+                if (error) throw error;
+
+                showMessage('Teammedlem tillagd!', 'success');
+                document.getElementById('addMemberForm').reset();
+                loadTeamMembers(); // Reload team members
+                
+            } catch (error) {
+                showMessage('Fel vid tillägg av teammedlem: ' + error.message, 'danger');
+            }
+        }
+
+        // Utility Functions
+        function showMessage(message, type = 'info') {
+            const messagesContainer = document.getElementById('messages');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            messagesContainer.appendChild(alert);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.remove();
+                }
+            }, 5000);
+        }
+
+
 // Dark mode toggle
 function toggleDarkMode() {
     const html = document.documentElement;
