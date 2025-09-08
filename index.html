@@ -45,14 +45,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Kontakt</a>
                     </li>
+
                 </ul>
+
+                 <!-- In the navbar section, replace the current auth button with: -->
+                <div id="authStatus" class="me-3">
+                    <span id="userEmail" class="text-light me-2"></span>
+                    <a href="auth.html" id="authButton" class="btn btn-outline-light btn-sm">
+                        Logga in
+                    </a>
+                </div>
                 
                 <button class="btn btn-outline-light dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()" title="Växla mörkt/ljust läge">
                     <i class="fas fa-moon" id="darkModeIcon"></i>
                 </button>
             </div>
         </div>
+
     </nav>
+    
 
     <!-- Hero Section -->
     <section id="home" class="hero">
