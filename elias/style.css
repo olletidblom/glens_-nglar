@@ -1,0 +1,276 @@
+
+h1{
+    font-family: 'Inter', sans-serif;
+    font-size: 100px;
+    font-weight: 700;
+    color: rgb(64, 7, 90);
+    text-align: center;
+    margin-bottom: 20px;
+    transform: skew(-10deg); 
+    text-shadow: rgb(16, 1, 36) 1px 0 10px;
+}
+
+h2{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(77, 8, 109);
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: rgb(16, 1, 36) 1px 0 10px;
+}
+
+p{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white; 
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px; /* Padding för att undvika att texten går kant i kant */
+}
+
+
+    body{
+
+    background: linear-gradient(to top, rgb(41, 1, 78), rgb(44, 7, 68), rgb(46, 14, 71), rgb(34, 16, 58), rgba(35, 18, 56, 0.685));
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+    min-height: 100vh;
+    position: relative;
+    }
+
+    @keyframes gradientAnimation {
+        0%, 100% { background-position: center top; }
+        50% { background-position: center bottom; }
+    }
+ 
+    body::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px; /* thickness of the border */
+    background: linear-gradient(to right, rgb(18, 19, 92), rgb(15, 14, 90), rgb(0, 110, 255), rgb(15, 14, 90), rgb(18, 19, 92));
+    pointer-events: none;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(29, 31, 56, 1); /* White background with some transparency */
+    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 50px auto; /* Center the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Add this line to increase height */
+}
+
+.about-section {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(29, 31, 56, 1); /* White background with some transparency */
+    max-width: 400px;   /* Begränsar bredden */
+    min-width: 0px; 
+    border-radius: 10px;
+    margin: 0; /* Center the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Add this line to increase height */
+}
+
+.button{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    background-color: rgba(29, 31, 56, 1);
+    color: rgb(89, 9, 126);
+    border: solid 1px rgb(0, 0, 0);
+    border-left: 0lvb;
+    border-right: 0lvb;
+    padding: 10px 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    
+    
+}
+
+.button:hover {
+    background-color: rgba(0, 110, 255, 0.8);
+    animation: buttonHover 1s forwards;
+}
+
+@keyframes buttonHover {
+    0% { background-color: rgba(29, 31, 56, 1);}
+    100% { background-color: rgba(4, 35, 77, 0.8); }
+}
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    
+    margin-bottom: 20px;
+}
+
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.quick-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(87, 4, 143);
+    text-decoration: underline;
+    padding: 10px 15px;
+    border: 0px solid rgb(255, 0, 255);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    text-shadow: rgb(16, 1, 36) 1px 0 10px;
+}
+
+.quick-link:hover {
+    background-color: rgba(255, 255, 255,0);
+    color: rgb(53, 4, 85);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+ul{
+    padding-left: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white;
+    list-style-type: disc;
+}
+
+.list-styles li{
+    margin-bottom: 20px; /* Avstånd under listan */
+}
+
+.columns {
+    display: flex;
+    gap: 20px;
+    max-width: 900px;
+    justify-content: center;
+    align-items: stretch;
+    margin: 40px auto; /* Center the section */
+}
+
+.education-section {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(29, 31, 56, 1); /* White background with some transparency */
+    max-width: 400px;   /* Begränsar bredden */
+    min-width: 0px; 
+    border-radius: 10px;
+    margin: 0; /* Center the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Add this line to increase height */
+}
+
+@media (max-width: 900px) {
+    .columns {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        min-height: 600px;
+    }
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 400px;
+}
+
+thead {
+    background-color: rgba(29, 31, 56, 1);
+    color: rgb(77, 8, 109);
+    padding: 10px;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+img{
+    margin: 10px;
+}
+
+@media (max-width: 600px) {
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        font-size: 14px;
+    }
+    .table-section {
+        overflow-x: auto;
+        min-width: none; 
+        max-width: 400px;
+    }
+    th, td {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
+
+.table-section {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(29, 31, 56, 1);
+    max-width: 100%;   
+    border-radius: 10px;
+    margin: 0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px; 
+}
+
+.katt-bild {
+    display: block;
+    align-items: center;
+    margin: 0 auto 20px auto; /* Center the image and add margin below */
+    border-radius: 10px; /* Optional: rounded corners */
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .katt-bild {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        max-width: 150px;
+        min-height: 0px;
+    }
+}

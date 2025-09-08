@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olle Tidblom - Systemutvecklare</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-keyboard me-2"></i>Olle Tidblom
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Om mig</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#timeline">Min resa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#companies">Företag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="hero-image mb-4">
+                      
+                        <img src="images/glad.JPG" alt="Olle Tidblom" class="rounded-circle profile-img">
+                    </div>
+                    <h1 class="display-3 fw-bold text-white mb-3 hero-title">Olle Tidblom</h1>
+                    <p class="lead text-light mb-4 hero-subtitle">
+                        <i class="fas fa-music me-2"></i>Från Musiker till ->
+                        <span class="mx-3">•</span>
+                        <i class="fas fa-code me-2"></i>Systemutvecklare C/C++
+                    </p>
+                    <a href="#about" class="btn btn-light btn-lg rounded-pill px-5 hero-btn">
+                        <i class="fas fa-arrow-down me-2"></i>Upptäck min resa
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Om mig</h2>
+                    <div class="section-divider mx-auto"></div>
+                </div>
+            </div>
+             <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-video-container">
+                        <!-- Din egen video här -->
+                        <video 
+                            class="img-fluid rounded shadow about-video" 
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            poster="images/olle-keyboard-poster.jpg">
+                            <source src="images/video.MP4" type="video/mp4">
+                            <!-- Fallback om video inte fungerar -->
+                            <img src="images/olle-keyboard-fallback.jpg" alt="Olle bakom keyboard" class="img-fluid rounded shadow">
+                        </video>
+                        
+                        <!-- Play/Pause knapp (valfritt) -->
+                        <button class="video-control-btn" onclick="toggleVideo(this)">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <p class="lead"><strong>Från Lidköping till världen</strong> - 29 år gammal musiker som nu tar steget in i teknikvärlden. Efter att ha bott i Stockholm sedan 2021 är jag nu redo för nästa kapitel i Göteborg.</p>
+                        
+                        <p>Min musikbakgrund har lärt mig <strong>kreativ problemlösning, precision och teamwork</strong> - färdigheter som är ovärderliga inom systemutveckling. Från att komponera musik till att komponera kod - båda kräver logiskt tänkande och kreativitet.</p>
+                        
+                        <p>Just nu studerar jag <strong>Systemutveckling i C/C++</strong> medan jag fortsätter turnera med Marcus & Martinus. Min dröm är att kombinera min kreativa bakgrund med teknisk expertis för att bygga system som gör skillnad.</p>
+                        
+                        <div class="skills-container mt-4">
+                            <h5 class="fw-bold mb-3">Tekniska färdigheter</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-dark me-2">C/C++</span>
+                                        <span class="badge bg-dark me-2">HTML/CSS</span>
+                                    </div>
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-dark me-2">JavaScript</span>
+                                        <span class="badge bg-dark me-2">Python</span>
+                                    </div>
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-dark me-2">Django</span>
+                                        <span class="badge bg-dark me-2">Juce</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-secondary me-2">Problemlösning</span>
+                                        <span class="badge bg-secondary me-2">Teamwork</span>
+                                    </div>
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-secondary me-2">Kreativitet</span>
+                                        <span class="badge bg-secondary me-2">Git</span>
+                                    </div>
+                                    <div class="skill-item mb-2">
+                                        <span class="badge bg-secondary me-2">Ableton</span>
+                                        <span class="badge bg-secondary me-2">Logic Pro X</span>
+                                    </div>
+                                      <div class="skill-item mb-2">
+                                        <span class="badge bg-secondary me-2">Reaper</span>
+                                        <span class="badge bg-secondary me-2">Cubase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Min resa</h2>
+                    <div class="section-divider mx-auto"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="timeline">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2024 - Nu</div>
+                                <h4 class="fw-bold mb-2">Keyboardist för Marcus & Martinus</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-globe me-2"></i>Internationell turné</p>
+                                <p>Turnerar Europa runt med en av Nordens största pop-akter. Ansvarig för keyboard, syntar och backstage teknisk support.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2025 - 2027</div>
+                                <h4 class="fw-bold mb-2">Studerar Systemutveckling C/C++</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-graduation-cap me-2"></i>Yrkeshögskola</p>
+                                <p>Fördjupar mig inom systemutveckling med fokus på C/C++.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2024 - 2025</div>
+                                <h4 class="fw-bold mb-2">Fullstack Development</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-school me-2"></i>Code Institute</p>
+                                <p>Intensivkurs inom fullstack-utveckling. HTML, CSS, JavaScript, Python, och moderna ramverk för både frontend och backend.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2021 - 2024</div>
+                                <h4 class="fw-bold mb-2">Låtskrivare & Producent</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-record-vinyl me-2"></i>Northbound Records</p>
+                                <p>Skrev och producerade musik för svenska och internationella artister. Arbetade med digital audio workstations och musikteknologi.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2019 - 2021</div>
+                                <h4 class="fw-bold mb-2">Yrkeshögskolan Musikmakarna</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-graduation-cap me-2"></i>Studier</p>
+                                <p>Specialiserade mig inom musikproduktion och ljudteknik. Lärde mig avancerad studioteknik och digital musikskapande.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 6 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2017 - 2019</div>
+                                <h4 class="fw-bold mb-2">Gymnasielärare</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-piano me-2"></i>Piano & Ensemble</p>
+                                <p>Undervisade gymnasieelever i piano och ensemblespel. Utvecklade pedagogiska färdigheter och förmågan att förklara komplexa koncept enkelt.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 7 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fas fa-guitar"></i>
+                            </div>
+                            <div class="timeline-content bg-white p-4 rounded shadow-sm">
+                                <div class="timeline-year text-primary fw-bold">2014 - 2017</div>
+                                <h4 class="fw-bold mb-2">Keyboardist i Blender</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-microphone me-2"></i>Professionell musiker</p>
+                                <p>Startade min professionella musikkarriär som keyboardist i bandet Blender. Turnerade och spelade in musik på professionell nivå.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section id="companies" class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Drömarbetsgivare</h2>
+                    <div class="section-divider mx-auto"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.spotify.com/se/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fab fa-spotify"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Spotify</h5>
+                                <p class="card-text text-muted">Musikstreaming & Audio Tech</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.nordkeyboards.com/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fas fa-keyboard"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Nord Keyboards</h5>
+                                <p class="card-text text-muted">Svensktillverkade Keyboards</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.klevgrand.com/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Klevgrand</h5>
+                                <p class="card-text text-muted">VST-plugins för musikproduktion</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.ableton.com/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fas fa-sliders-h"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">Ableton</h5>
+                                <p class="card-text text-muted">Digital Audio Workstation</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.theaudioprogrammer.com/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">The Audio Programmer</h5>
+                                <p class="card-text text-muted">Custom VST-plugins</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="https://www.iconnectivity.com/" target="_blank" class="company-card text-decoration-none">
+                        <div class="card h-100 border-0 shadow company-card-inner">
+                            <div class="card-body text-center p-4">
+                                <div class="company-icon mb-3">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">IConnectivity</h5>
+                                <p class="card-text text-muted">Ljudkort och MidiInterfaces för Live</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Kontakt</h2>
+                    <div class="section-divider mx-auto bg-light"></div>
+                    <p class="lead">Låt oss skapa något fantastiskt tillsammans!</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="contact-info">
+                        <div class="mb-4">
+                            <i class="fas fa-envelope fa-2x mb-3"></i>
+                            <h5>Email</h5>
+                            <p class="text-light">tidblom.olle@gmail.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <i class="fas fa-map-marker-alt fa-2x mb-3"></i>
+                            <h5>Plats</h5>
+                            <p class="text-light">Göteborg, Sverige</p>
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="https://www.linkedin.com/in/olle-tidblom-94502b328/" class="btn btn-outline-light rounded-circle me-3">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+
+                            <a href="https://www.instagram.com/olletidblom/" class="btn btn-outline-light rounded-circle">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 Olle Tidblom.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
