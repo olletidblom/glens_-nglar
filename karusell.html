@@ -1,4 +1,34 @@
 <head>
+<style>
+body {
+  background: linear-gradient(135deg, #23272f 0%, #181a20 100%);
+  color: #f1f1f1;
+}
+.container {
+  background: #23272f !important;
+  color: #f1f1f1 !important;
+}
+a {
+  color: #ffd700;
+}
+a:hover {
+  color: #ffa500;
+}
+.bg-dark, .bg-black {
+  background-color: #181a20 !important;
+  color: #f1f1f1 !important;
+}
+.text-white {
+  color: #f1f1f1 !important;
+}
+.text-light {
+  color: #f1f1f1 !important;
+}
+.badge.bg-dark {
+  background-color: #23272f !important;
+  color: #ffd700 !important;
+}
+</style>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- JS (behövs för att carouselen ska fungera) -->
@@ -7,54 +37,88 @@
 
 </head>
 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-mode-toggle md-4 fixed-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="#home">Glens Änglar</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Hem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="karusell.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Om oss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+                
+                <button class="btn btn-outline-light dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()" title="Växla mörkt/ljust läge">
+                    <i class="fas fa-moon" id="darkModeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
 <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <img src="axel/pictures/Gamingmix2.png" class="d-block w-100" alt="Medlem 1">
+      <img src="axel/pictures/Gamingmix2.png" class="d-block mx-auto img-fluid small-img" alt="Medlem 1">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Anna Svensson</h5>
-        <p>Designer</p>
+        <h5>Axel</h5>
+        <p>Developer</p>
       </div>
     </div>
 
     <!-- Slide 2 -->
     <div class="carousel-item">
-      <img src="bapt/assets/BaptPP.JPG" class="d-block w-100" alt="Medlem 2">
+      <img src="bapt/assets/BaptPP.JPG" class="d-block mx-auto img-fluid small-img" alt="Medlem 2">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Erik Karlsson</h5>
+        <h5>Baptiste</h5>
         <p>Developer</p>
       </div>
     </div>
 
     <!-- Slide 3 -->
     <div class="carousel-item">
-      <img src="elias/image.jpg" class="d-block w-100" alt="Medlem 3">
+      <img src="elias/image.jpg" class="d-block mx-auto img-fluid small-img" alt="Medlem 3">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Lisa Andersson</h5>
-        <p>Manager</p>
+        <h5>Elias</h5>
+        <p>Developer</p>
       </div>
     </div>
   </div>
 
       <div class="carousel-item">
-      <img src="joakim/IMG_20240105_142150_573.jpg" class="d-block w-100" alt="Medlem 4">
+      <img src="joakim/IMG_20240105_142150_573.jpg" class="d-block mx-auto img-fluid small-img" alt="Medlem 4">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Lisa Andersson</h5>
-        <p>Manager</p>
+        <h5>Joakim</h5>
+        <p>Developer</p>
       </div>
     </div>
-  </div>
+  
 
       <div class="carousel-item">
-      <img src="olle/images/glad.JPG" class="d-block w-100" alt="Medlem 5">
+      <img src="olle/images/glad.JPG" class="d-block mx-auto img-fluid small-img" alt="Medlem 5">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Lisa Andersson</h5>
-        <p>Manager</p>
+        <h5>Olle</h5>
+        <p>Developer</p>
       </div>
     </div>
   </div>
-
+  </div>
+</div>
   <!-- Kontroller (vänster/höger) -->
   <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -69,4 +133,24 @@
     <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="1"></button>
     <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="2"></button>
   </div>
+
+<style>
+.small-img {
+  max-height: 300px;   /* gör bilderna lägre */
+  width: 300px;         /* behåll proportionerna */
+  object-fit: cover;   /* beskär snyggt om bilden är för stor */
+}
+
+.carousel-control-prev-icon {
+  background-color: blue; /* enklast sättet att se skillnaden */
+  border-radius: 50%;    /* gör cirkel */
+}
+
+/* Ändra högerpilen till blå */
+.carousel-control-next-icon {
+  background-color: blue;
+  border-radius: 50%;
+}
+</style>
+
 </div>
