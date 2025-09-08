@@ -21,16 +21,28 @@ document.body.setAttribute('data-bs-theme', savedTheme);
 // Weather API integration
 async function loadWeather() {
     try {
-        // Replace 'YOUR_API_KEY' with actual OpenWeatherMap API key
-        const API_KEY = 'YOUR_API_KEY';
+        console.log('Laddar väderdata...');
+        const API_KEY = 'b5f233363aa3bd493aaadfc10ee3792f'; // ← Din API-nyckel
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${API_KEY}&units=metric&lang=sv`);
         const data = await response.json();
-        
-        document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°C`;
-        document.getElementById('description').textContent = data.weather[0].description;
+
+        console.log("api response:", data); // Logga hela API-svaret för felsökning
+
+        if (data.cod === 200) {
+            document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°C`;
+            document.getElementById('description').textContent = data.weather[0].description;
+
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+            document.querySelector('.weather-icon').innerHTML = `<img src="${iconUrl}" alt="${data.weather[0].description}" style="height: 50px;">`;
+        } else {
+            document.getElementById('temperature').textContent = 'Väderdata saknas';
+            document.getElementById('description').textContent = '';
+        }
     } catch (error) {
-        document.getElementById('temperature').textContent = '22°C';
-        document.getElementById('description').textContent = 'Soligt väder';
+        console.error('Fel vid hämtning av väderdata:', error);
+        document.getElementById('temperature').textContent = 'Kunde inte ladda väder';
+        document.getElementById('description').textContent = '';
     }
 }
 
