@@ -225,4 +225,14 @@ img:hover {
     h2 {
         font-size: 1.3rem;
     }
+    
+    /* Main page extra small screens */
+    body:has(.main-section) h1 {
+        font-size: 2rem;
+    }
+    
+    .button {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.1rem;
+    }
 }
