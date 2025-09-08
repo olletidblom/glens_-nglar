@@ -379,7 +379,8 @@
         // On page load, set mode from localStorage
         (function() {
             const saved = localStorage.getItem('glens_anglar_darkmode');
-            setDarkMode(saved === null ? true : saved === 'true');
+            // Always default to dark mode unless user has chosen light
+            setDarkMode(saved === 'false' ? false : true);
         })();
         </script>
         <!-- Custom JavaScript -->
