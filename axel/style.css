@@ -1,0 +1,105 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f0f8ff;
+}
+h1 {
+    color: #2e8b57;
+}
+text{
+    flex: 1;            
+}
+img {
+    margin-top: 20px;
+    border-radius: 8px; /* Runda kanter :) */
+    max-width: 100%;
+    height: auto;
+}
+.container{
+    display: flex;
+    flex-direction: row; 
+    /* Testade runt med kolumner och flex i container och image, men blev alltid en ELLER två kolumner, aldrig responsivt
+    Antar att @media behövs?
+    display: flex;
+    max-width: 600px;
+    */
+}
+.image{
+    flex: 1;
+}        
+/* Om width på skärmen är större än 600px så gör om flex-direction till en single kolumn */
+nav {
+    background: #494949;
+    padding: 10px 0;
+    border-radius: 12px;
+}
+ul.navbar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    justify-content: center;
+    margin: 0;
+}
+ul.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+ul.navbar li a:hover {
+    background: #226644;
+}
+
+.cv-section {
+    background-color: #e6e6fa; /* Ljuslila bakgrund */
+    padding: 32px 24px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+.cv-section h2 {
+    color: #494949;
+    margin-top: 0;
+}
+.cv-list {
+    margin: 0;
+    padding-left: 20px;
+}
+.cv-list li {
+    margin-bottom: 16px;
+}
+.cv-list .desc {
+    display: block;
+    color: #333;
+    margin-left: 8px;
+    margin-bottom: 2px;
+    font-size: 0.98em;
+}
+.cv-list .tech {
+    display: block;
+    color: #2e8b57;
+    margin-left: 8px;
+    font-size: 0.95em;
+    font-style: italic;
+}
+.text ul li img {
+    height: 300px;   /* Ändra till önskad höjd, t.ex. 20px */
+    width: auto;    /* Behåll proportioner */
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.project-img {
+    height: 180px; /* Skalar ner till ca 50% av 32px */
+    width: auto;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+        
+@media (max-width: 600px) { 
+    .container {
+        flex-direction: column;
+    }
+}
