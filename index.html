@@ -263,15 +263,71 @@
 
 
         <!-- Voting Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="card voting-section bg-light">
-                    <div class="card-body text-center p-4">
-                        <h5 class="card-title mb-4">Rösta på vårt teamnamn!</h5>
-                        <button class="btn btn-primary vote-button" onclick="vote('awesome')">Team Awesome</button>
-                        <button class="btn btn-primary vote-button" onclick="vote('legends')">Team Legends</button>
-                        <div class="vote-count mt-3" id="voteCount">Totalt röster: 0</div>
-                    </div>
+        <div class="container">
+        <h1 class="poll-question">
+          Vilken sida är din favorit?
+        </h1>
+        <form id="poll-form" class="poll-form">
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Axel"> Axel
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Bapt"> Baptiste
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Elias"> Elias
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Joakim"> Joakim
+            </label>
+            <label>
+                <input type="radio" 
+                       name="vote" 
+                       value="Olle"> Olle
+            </label>
+            <button type="submit" 
+                    class="vote-button">
+              Vote
+            </button>
+            </form>
+            <div id="results" class="results">
+                <h2 class="results-title">
+                Results
+                </h2>
+                <div class="results-count">
+                    <p>Axel: 
+                    <span id="axel-count" 
+                            class="count">0
+                    </span>
+                    </p>
+                    <p>Baptiste: 
+                    <span id="bapt-count" 
+                                class="count">0
+                    </span>
+                    </p>
+                    <p>Elias: 
+                    <span id="elias-count" 
+                                class="count">0
+                    </span>
+                    </p>
+                    <p>Joakim: 
+                    <span id="joakim-count" 
+                                class="count">0
+                    </span>
+                    </p>
+                    <p>Olle: 
+                    <span id="olle-count" 
+                                class="count">0
+                    </span>
+                    </p>
                 </div>
             </div>
         </div>
